@@ -1,52 +1,29 @@
-body {
-    background-color: #0f1923;
-    color: #ece8e1;
-    font-family: 'Arial Black', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+var agents = ["Jett", "Phoenix", "Sage", "Cypher", "Omen", "Reyna", "Killjoy", "Skye", "Yoru", "Astra", "KAY/O", "Chamber", "Neon", "Fade", "Harbor", "Gekko", "Deadlock", "Iso"];
+var weapons = ["Classic", "Ghost", "Sheriff", "Spectre", "Judge", "Bulldog", "Guardian", "Phantom", "Vandal", "Operator"];
 
-.container {
-    text-align: center;
-    border: 2px solid #ff4655;
-    padding: 40px;
-    background-color: #1f2326;
-}
+var btn = document.getElementById('spin-btn');
+var agentDisplay = document.getElementById('agent-display');
+var weaponDisplay = document.getElementById('weapon-display');
 
-h1 {
-    color: #ff4655;
-    text-transform: uppercase;
-}
+btn.onclick = function() {
+    btn.disabled = true;
+    btn.innerText = "SPINNING...";
 
-.result-area {
-    font-size: 2rem;
-    margin: 30px 0;
-}
+    var count = 0;
+    var timer = setInterval(function() {
+        var rAgent = agents[Math.floor(Math.random() * agents.length)];
+        var rWeapon = weapons[Math.floor(Math.random() * weapons.length)];
 
-#agent-display, #weapon-display {
-    color: #00eeff;
-}
+        agentDisplay.innerText = rAgent;
+        weaponDisplay.innerText = rWeapon;
 
-button {
-    background-color: #ff4655;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: 0.3s;
-}
+        count++;
 
-button:hover {
-    background-color: #ffffff;
-    color: #ff4655;
-}
-
-button:disabled {
-    background-color: #555;
-    cursor: not-allowed;
-}
+        if (count >= 15) {
+            clearInterval(timer);
+            btn.disabled = false;
+            btn.innerText = "SPIN NOW";
+        }
+    }, 70);
+};
 
