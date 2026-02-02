@@ -1,0 +1,52 @@
+body {
+    background-color: #0f1923;
+    color: #ece8e1;
+    font-family: 'Arial Black', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    border: 2px solid #ff4655;
+    padding: 40px;
+    background-color: #1f2326;
+}
+
+h1 {
+    color: #ff4655;
+    text-transform: uppercase;
+}
+
+.result-area {
+    font-size: 2rem;
+    margin: 30px 0;
+}
+
+#agent-display, #weapon-display {
+    color: #00eeff;
+}
+
+button {
+    background-color: #ff4655;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #ff4655;
+}
+
+button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+

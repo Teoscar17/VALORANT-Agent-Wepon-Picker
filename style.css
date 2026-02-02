@@ -1,0 +1,28 @@
+var agents = ["Jett", "Phoenix", "Sage", "Cypher", "Omen", "Reyna", "Killjoy", "Skye", "Yoru", "Astra", "KAY/O", "Chamber", "Neon", "Fade", "Harbor", "Gekko", "Deadlock", "Iso"];
+var weapons = ["Classic", "Ghost", "Sheriff", "Spectre", "Judge", "Bulldog", "Guardian", "Phantom", "Vandal", "Operator"];
+
+var btn = document.getElementById('spin-btn');
+var agentDisplay = document.getElementById('agent-display');
+var weaponDisplay = document.getElementById('weapon-display');
+
+btn.onclick = function() {
+    btn.disabled = true;
+    btn.innerText = "SPINNING...";
+
+    var count = 0;
+    var timer = setInterval(function() {
+        var rAgent = agents[Math.floor(Math.random() * agents.length)];
+        var rWeapon = weapons[Math.floor(Math.random() * weapons.length)];
+
+        agentDisplay.innerText = rAgent;
+        weaponDisplay.innerText = rWeapon;
+
+        count++;
+
+        if (count >= 15) {
+            clearInterval(timer);
+            btn.disabled = false;
+            btn.innerText = "SPIN NOW";
+        }
+    }, 70);
+};
